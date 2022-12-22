@@ -9,6 +9,13 @@ import javax.swing.JMenuBar;
 import java.awt.GridLayout;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import java.awt.Color;
+import javax.swing.JTabbedPane;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.Font;
 
 public class Principal extends JFrame {
 
@@ -34,38 +41,58 @@ public class Principal extends JFrame {
 	public Principal() {
 		setTitle("Sistema de Gesti\u00F3n American");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 778, 498);
+		setBounds(100, 100, 1070, 695);
+		getContentPane().setLayout(null);
 		
-		JMenuBar menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 219, 656);
+		panel.setBackground(new Color(0, 128, 192));
+		getContentPane().add(panel);
+		panel.setLayout(null);
 		
-		JMenu mnNewMenu_1 = new JMenu("Alumnos");
-		mnNewMenu_1.setActionCommand("New Menu");
-		menuBar.add(mnNewMenu_1);
+		JPanel panelAl = new JPanel();
+		panelAl.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				panelAl.setBackground(new Color(250, 250, 250));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				panelAl.setBackground(new Color(240, 240, 240));
+			}
+		});
+		panelAl.setBackground(new Color(240, 240, 240));
+		panelAl.setBounds(0, 156, 219, 47);
+		panel.add(panelAl);
+		panelAl.setLayout(null);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Agregar Alumno");
-		mnNewMenu_1.add(mntmNewMenuItem);
+		JLabel lblNewLabel_1 = new JLabel("Alumnos");
+		lblNewLabel_1.setFont(new Font("Roboto Black", Font.BOLD, 16));
+		lblNewLabel_1.setBounds(10, 11, 95, 19);
+		panelAl.add(lblNewLabel_1);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Eliminar Alumno");
-		mnNewMenu_1.add(mntmNewMenuItem_1);
+		JPanel panel_3_1 = new JPanel();
+		panel_3_1.setBounds(0, 214, 219, 47);
+		panel.add(panel_3_1);
 		
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Modificar Alumno");
-		mnNewMenu_1.add(mntmNewMenuItem_2);
+		JPanel panel_3_2 = new JPanel();
+		panel_3_2.setBounds(0, 272, 219, 47);
+		panel.add(panel_3_2);
 		
-		JMenu mnNewMenu = new JMenu("Cursos");
-		mnNewMenu.setActionCommand("New Menu");
-		menuBar.add(mnNewMenu);
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Principal.class.getResource("/imagenes/american_1.png")));
+		lblNewLabel.setBounds(0, 0, 219, 155);
+		panel.add(lblNewLabel);
 		
-		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Agregar Curso");
-		mnNewMenu.add(mntmNewMenuItem_3);
+		JPanel panelEnc = new JPanel();
+		panelEnc.setBounds(218, 0, 836, 86);
+		panelEnc.setBackground(new Color(255, 255, 255));
+		getContentPane().add(panelEnc);
 		
-		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Eliminar Curso");
-		mnNewMenu.add(mntmNewMenuItem_4);
-		
-		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Modificar Curso");
-		mnNewMenu.add(mntmNewMenuItem_5);
-		
-		JMenu mnNewMenu_2 = new JMenu("Profesores");
-		menuBar.add(mnNewMenu_2);
+		JPanel panelBase = new JPanel();
+		panelBase.setBackground(new Color(255, 255, 255));
+		panelBase.setForeground(new Color(255, 255, 255));
+		panelBase.setBounds(218, 84, 836, 572);
+		getContentPane().add(panelBase);
 	}
 }
