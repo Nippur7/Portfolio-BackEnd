@@ -28,4 +28,14 @@ public class ContactoService {
     public ContactoModel guardarContacto(ContactoModel contacto){
         return contactoRepository.save(contacto);
     }
+
+    public ContactoModel encontrarContacto(Integer id){
+        ContactoModel tipo = contactoRepository.findById(id).orElse(null);
+        return tipo;
+    }
+
+    public void borrarContacto(Integer id){
+        contactoRepository.deleteById(id);
+    }
+
 }

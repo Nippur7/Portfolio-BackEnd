@@ -8,7 +8,9 @@ import ArgProg4.CV_Dynamic1.Model.ContactoModel;
 import ArgProg4.CV_Dynamic1.Service.ContactoService;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,8 +34,19 @@ public class ContactoController {
     
     @PostMapping(path = "/agregar")
     public ContactoModel guardarContacto(@RequestBody ContactoModel contacto){
-        return this.contactoService.guardarContacto(contacto);
-    
+        return this.contactoService.guardarContacto(contacto);  
  
     }
+
+    @GetMapping("/buscar/{id}")
+    public ContactoModel buscarTipo(@PathVariable Integer id){
+        return contactoService.encontrarContacto(id);
+    } 
+
+    @DeleteMapping("/borrar/{id}")
+    public String borrarTipo(@PathVariable Integer id){
+        contactoService.borrarContacto(id);
+        return "Eliminación exitosa";
+    }
+
 }

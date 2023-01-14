@@ -8,7 +8,9 @@ import ArgProg4.CV_Dynamic1.Model.TipoModel;
 import ArgProg4.CV_Dynamic1.Service.TipoService;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,11 +29,24 @@ public class TipoController {
     @GetMapping()
     public ArrayList<TipoModel> obtenerTipo(){
         return tipoService.obtenerTipo();        
-    } 
+    }
     
     @PostMapping(path = "/agregar")
     public TipoModel guardarTipo(@RequestBody TipoModel tipo){
         return this.tipoService.guardarTipo(tipo);
     }
+
+    @GetMapping("/buscar/{id}")
+    public TipoModel buscarTipo(@PathVariable Integer id){
+        return tipoService.encontrarTipo(id);
+    } 
+
+    @DeleteMapping("/borrar/{id}")
+    public String borrarTipo(@PathVariable Integer id){
+        tipoService.borrarTipo(id);
+        return "Eliminación exitosa";
+    }
+
+
 
 }

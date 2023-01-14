@@ -26,6 +26,16 @@ public class UsuarioModel {
     private String password;
     private Date ingreso;
     private String aboutme;
+    @Column(nullable = true, length = 64)
+    private String picture;
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
 
     public int getIdusuario() {
         return idusuario;

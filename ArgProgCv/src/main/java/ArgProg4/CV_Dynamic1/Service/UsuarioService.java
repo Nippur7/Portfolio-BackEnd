@@ -25,4 +25,13 @@ public class UsuarioService {
     public UsuarioModel guardarUsuario(UsuarioModel usuario){
         return usuarioRepository.save(usuario);
     }
+
+    public UsuarioModel encontrarUsuario(Integer id){
+        UsuarioModel tipo = usuarioRepository.findById(id).orElse(null);
+        return tipo;
+    }
+
+    public void borrarUsuario(Integer id){
+        usuarioRepository.deleteById(id);
+    }
 }

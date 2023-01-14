@@ -26,4 +26,14 @@ public class TipoService {
     public TipoModel guardarTipo(TipoModel tipo){
          return tipoRepository.save(tipo);
     }
+    
+    public TipoModel encontrarTipo(Integer id){
+        TipoModel tipo = tipoRepository.findById(id).orElse(null);
+        return tipo;
+    }
+
+    public void borrarTipo(Integer id){
+        tipoRepository.deleteById(id);
+    }
+
 }

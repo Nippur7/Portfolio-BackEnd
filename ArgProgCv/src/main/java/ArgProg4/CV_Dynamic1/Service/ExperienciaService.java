@@ -26,6 +26,16 @@ public class ExperienciaService {
         return experienciaRepository.save(experiencia);
         
     }
+
+    public ExperienciaModel encontrarExperiencia(Integer id){
+        ExperienciaModel tipo = experienciaRepository.findById(id).orElse(null);
+        return tipo;
+    }
+
+    public void borrarExperiencia(Integer id){
+        experienciaRepository.deleteById(id);
+    }
+    
     
     
 }

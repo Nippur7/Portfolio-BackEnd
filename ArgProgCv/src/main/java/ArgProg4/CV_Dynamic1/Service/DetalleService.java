@@ -26,5 +26,15 @@ public class DetalleService {
         return detalleRepository.save(detalle);
     }
     
-    
+    public DetalleModel encontrarDetalle(Integer id){
+        DetalleModel tipo = detalleRepository.findById(id).orElse(null);
+        return tipo;
+    }
+
+    public void borrarDetalle(Integer id){
+        detalleRepository.deleteById(id);
+    }
+
+   
+
 }

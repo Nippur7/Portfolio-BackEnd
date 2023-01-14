@@ -9,7 +9,6 @@ import ArgProg4.CV_Dynamic1.Repository.SkillRepository;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  *
@@ -27,5 +26,14 @@ public class SkillService {
     
     public SkillModel guardarSkill(SkillModel skill){
         return skillRepository.save(skill);
+    }
+
+    public SkillModel encontrarSkill(Integer id){
+        SkillModel skill = skillRepository.findById(id).orElse(null);
+        return skill;
+    }
+
+    public void borrarSkill(Integer id){
+        skillRepository.deleteById(id);
     }
 }
