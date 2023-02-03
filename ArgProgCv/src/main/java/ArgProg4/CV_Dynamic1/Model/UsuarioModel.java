@@ -26,7 +26,7 @@ public class UsuarioModel {
     private String password;
     private Date ingreso;
     private String aboutme;
-    @Column(nullable = true, length = 64)
+    @Column(nullable = true, length = 128)
     private String picture;
 
     public String getPicture() {

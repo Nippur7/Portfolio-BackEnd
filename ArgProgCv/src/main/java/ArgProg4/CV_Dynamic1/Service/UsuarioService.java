@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 public class UsuarioService {
     @Autowired
     UsuarioRepository usuarioRepository;
+    
     public ArrayList<UsuarioModel> obtenerUsuarios(){
         return (ArrayList<UsuarioModel>) usuarioRepository.findAll();
     }
@@ -38,5 +39,18 @@ public class UsuarioService {
     public void actualizarUsuario(UsuarioModel usuario){
         usuarioRepository.save(usuario);
 
+    }
+
+    public int encontrarEmail(String email){        
+        ArrayList<UsuarioModel> users = (ArrayList<UsuarioModel>) usuarioRepository.findAll();                
+        int id =-1;
+        for (int i = 0 ; i < users.size();i++){
+            if(users.get(i).getEmail().equals(email)) {
+               //return(users.get(i).getIdusuario());
+               id = i;
+               return users.get(id).getIdusuario();
+            }
+        }
+        return id;
     }
 }

@@ -20,7 +20,7 @@ public class DetalleModel {
     private int iddetalles;
     
     private String puesto;
-    private String descripción;
+    private String descripcion;
     private String obs;
     private int iduser;
 
@@ -40,12 +40,12 @@ public class DetalleModel {
         this.puesto = puesto;
     }
 
-    public String getDescripción() {
-        return descripción;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDescripción(String descripción) {
-        this.descripción = descripción;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getObs() {
